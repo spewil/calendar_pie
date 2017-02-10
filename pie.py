@@ -12,8 +12,8 @@ def calculate_time(event):
 
 labels = []
 totals = []
-
 path = 'cals/'
+
 for filename in os.listdir(path):
 	file = open(path+filename, 'rb')
 	cal = Calendar.from_ical(file.read())
@@ -31,18 +31,15 @@ for filename in os.listdir(path):
 	labels.append(name)
 	print name + ': ' +  str(total_time)
 
-#######################
-# PLOTTING
-#######################
+	# get earliest element of any calendar 
+	# if curr_first_time < earliest:
+	# 		earliest = curr_first_time 
 
-# Data to plot
-# labels = 'Python', 'C++', 'Ruby', 'Java'
-# sizes = [215, 130, 245, 210]
-# colors = ['gold', 'yellowgreen', 'lightcoral', 'lightskyblue']
-# explode = (0.1, 0, 0, 0)  # explode 1st slice
+# total_duration = latest - earliest
+
+### PLOTTING
  
-# Plot
-plt.pie(totals, labels=labels, autopct='%1.1f%%')
- 
+plt.pie(totals, labels=labels, autopct='%1.1f%%') 
 plt.axis('equal')
 plt.show()
+
